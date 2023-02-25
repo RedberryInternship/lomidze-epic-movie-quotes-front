@@ -45,7 +45,7 @@ const AddEmail = ({ refetch }: { refetch: () => {} }) => {
               <Button
                 text={t('add') as string}
                 style='buttonRed'
-                className='ml-3 mt-10 !text-xl !px-4'
+                className='ml-3 mt-10 lg:!text-xl !px-4'
                 disabled={isLoading}
               />
             </div>

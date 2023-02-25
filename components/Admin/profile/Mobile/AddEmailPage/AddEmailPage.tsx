@@ -44,7 +44,7 @@ const AddEmailPage = ({ refetch }: { refetch: () => {} }) => {
                   typeButton
                   text={t('add') as string}
                   style='buttonRed'
-                  className='!text-xl !px-4'
+                  className='lg:text-xl !px-4'
                   disabled={isLoading}
                 />
               </div>
