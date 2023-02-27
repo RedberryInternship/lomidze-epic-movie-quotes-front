@@ -23,7 +23,7 @@ export const useAddComment = () => {
 
   const onSubmit = async (data: AddCommentProps) => {
     if (!data.comment.length) return;
-    try {
+    try { 
       setIsLoading(true);
       dispatch(feedActions.addComment({ ...data, user: authUser }));
       await addComment(data);

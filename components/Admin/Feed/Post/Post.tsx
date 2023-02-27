@@ -104,7 +104,7 @@ const Post: FC<Post> = ({ post, lastFeedElementRef, modal }) => {
                 </Figure>
               </div>
               <Divider />
-              <Comment data={item.comments.slice().reverse()} />
+              <Comment data={item.comments} />
               <div className='flex mt-6'>
                 <Avatar
                   className='lg:h-[3.25rem] lg:w-[3.25rem] w-10 h-10'
