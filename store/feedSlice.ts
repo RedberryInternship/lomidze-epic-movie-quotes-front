@@ -59,7 +59,8 @@ const feedSlice = createSlice({
       const userId = action.payload.userId;
       const quoteIndex = feed.findIndex((e) => e.id == quoteId);
       const likeIndex = feed.findIndex(
-        (e) => e.id == quoteId && e.likes.some((l: Like) => l.user_id == userId)
+        (e) =>
+          e?.id == quoteId && e.likes.some((l: Like) => l.user_id == userId)
       );
 
       if (likeIndex >= 0) {
