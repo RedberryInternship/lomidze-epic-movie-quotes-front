@@ -38,6 +38,13 @@ export const useAdmin = () => {
   }, [pages, hasNextPage, fetchNextPage, nextBatch, dispatch]);
 
   const firstBatch = data?.pages[0].data.data;
+
+  useEffect(() => {
+    if (!searchQuery) return;
+    dispatch(feedActions.resetFeed());
+    refetch();
+  }, [searchQuery, dispatch, refetch]);
+
   useEffect(() => {
     if (feedData?.length > 0) return;
 
@@ -45,11 +52,6 @@ export const useAdmin = () => {
       dispatch(feedActions.updateFeed(firstBatch));
     }
   }, [pages, dispatch, firstBatch, feedData?.length]);
-
-  useEffect(() => {
-    dispatch(feedActions.resetFeed());
-    refetch();
-  }, [searchQuery, dispatch, refetch]);
 
   return {
     quotes: feedData,
