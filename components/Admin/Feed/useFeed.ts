@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { UseFeedProps } from './types';
 
 export const useFeed = ({ nextPage, loading = false }: UseFeedProps) => {
-  const dispatch = useDispatch();
   const observer = useRef<IntersectionObserver | null>();
   const { t } = useTranslation('shared');
 
