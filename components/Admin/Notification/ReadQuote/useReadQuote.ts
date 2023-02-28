@@ -12,9 +12,10 @@ export const useReadQuote = (id?: number) => {
   });
 
   const dispatch = useDispatch();
+  const quoteData = data?.data;
   useEffect(() => {
-    dispatch(feedActions.addQuote(data?.data));
-  }, [dispatch, data?.data, isFetched]);
+    if (quoteData) dispatch(feedActions.addQuote(quoteData));
+  }, [dispatch, quoteData, isFetched]);
 
   const quote = useSelector((state: RootState) => state.feed.feedData)?.filter(
     (f) => f?.id === id

@@ -27,15 +27,15 @@ export const useAdmin = () => {
     });
 
   const pages = data?.pages.length;
-  const nextBatch = pages && data?.pages[pages - 1].data.data;
+  const nextBatch = data?.pages.at(-1)?.data.data;
   const fetchNextPageData = useCallback(() => {
-    if (hasNextPage && pages) {
+    if (pages) {
       fetchNextPage();
-      if (pages > 1) {
+      if (pages >= 1) {
         dispatch(feedActions.updateFeed(nextBatch));
       }
     }
-  }, [pages, hasNextPage, fetchNextPage, nextBatch, dispatch]);
+  }, [pages, fetchNextPage, nextBatch, dispatch]);
 
   const firstBatch = data?.pages[0].data.data;
 

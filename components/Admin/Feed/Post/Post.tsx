@@ -4,7 +4,6 @@ import {
   Divider,
   ChatIcon,
   HeartIcon,
-  ModalLoadingOverlay,
   Figure,
 } from 'components';
 import { getImage, loadText } from 'helpers';
@@ -19,9 +18,9 @@ const Post: FC<Post> = ({ post, lastFeedElementRef, modal }) => {
   const { lang, handleLike, authUser } = usePost();
   return (
     <>
-      {post?.length &&
-        post?.map((item: FeedData, index: number) =>
-          item ? (
+      {post?.map(
+        (item: FeedData, index: number) =>
+          item && (
             <div
               key={item.id}
               className={`col-span-2 rounded-xl bg-app-black-dark ${
@@ -119,10 +118,8 @@ const Post: FC<Post> = ({ post, lastFeedElementRef, modal }) => {
                 <AddComment quoteId={item.id} />
               </div>
             </div>
-          ) : (
-            <ModalLoadingOverlay key={index} />
           )
-        )}
+      )}
     </>
   );
 };
